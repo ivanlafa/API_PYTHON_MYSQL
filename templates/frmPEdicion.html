@@ -1,56 +1,72 @@
 {% extends 'layout.html' %}
 {% block body %}
-    <h3>EDICION DE ESTUDIANTES</h3>
+    <h3>EDICIÓN DE ESTUDIANTES</h3>
     <form method="post" action="/editar/{{persona.0}}" id="frmEditar" onsubmit="return false">
-          <div class="mb-3">
+        <div class="mb-3">
             <label for="nombre" class="form-label">Nombre</label>
-            <input type="text" value="{{persona.1}}" class="form-control" id="nombre" name="nombre">
-          </div>
+            <input type="text" value="{{persona.1}}" class="form-control colorful-input" id="nombre" name="nombre">
+        </div>
 
-          <div class="mb-3">
+        <div class="mb-3">
             <label for="primerApellido" class="form-label">Primer apellido</label>
-            <input type="text" value="{{persona.2}}" class="form-control" id="primerApellido" name="primerApellido">
-          </div>
+            <input type="text" value="{{persona.2}}" class="form-control colorful-input" id="primerApellido" name="primerApellido">
+        </div>
 
-          <div class="mb-3">
+        <div class="mb-3">
             <label for="segundoApellido" class="form-label">Segundo apellido</label>
-            <input type="text" value="{{persona.3}}" class="form-control" id="segundoApellido" name="segundoApellido">
-          </div>
+            <input type="text" value="{{persona.3}}" class="form-control colorful-input" id="segundoApellido" name="segundoApellido">
+        </div>
 
-          
-          <div class="mb-3">
-            <label for="codigo" class="form-label">Codigo</label>
-            <input type="number" value="{{persona.4}}" class="form-control" id="codigo" name="codigo">
-          </div>
+        <div class="mb-3">
+            <label for="codigo" class="form-label">Código</label>
+            <input type="number" value="{{persona.4}}" class="form-control colorful-input" id="codigo" name="codigo">
+        </div>
 
-          
-          <div class="mb-3">
+        <div class="mb-3">
             <label for="correo" class="form-label">Correo</label>
-            <input type="text" value="{{persona.5}}" class="form-control" id="correo" name="correo">
-          </div>
+            <input type="text" value="{{persona.5}}" class="form-control colorful-input" id="correo" name="correo">
+        </div>
 
-          <div class="mb-3">
-            <label for="telefono" class="form-label">Telefono</label>
-            <input type="text" value="{{persona.6}}" class="form-control" id="telefono" name="telefono">
-          </div>
+        <div class="mb-3">
+            <label for="telefono" class="form-label">Teléfono</label>
+            <input type="text" value="{{persona.6}}" class="form-control colorful-input" id="telefono" name="telefono">
+        </div>
 
-          <div class="mb-3">
+        <div class="mb-3">
             <label for="fecha" class="form-label">Fecha</label>
-            <input type="text" value="{{persona.7}}" class="form-control" id="fecha" name="fecha">
-          </div>
+            <input type="text" value="{{persona.7}}" class="form-control colorful-input" id="fecha" name="fecha">
+        </div>
 
-
-
-
-
-          <input  class="btn btn-primary" type="submit" name="aceptar" value="Editar" onclick="edicionProducto()">
+        <input class="btn btn-primary colorful-button" type="submit" name="aceptar" value="Editar" onclick="edicionProducto()">
     </form>
-    {% with mensajes  = get_flashed_messages() %}
+    {% with mensajes = get_flashed_messages() %}
     {% if mensajes %}
     {% for mensaje in mensajes %}
-        <p>{{mensaje}}</p>
-    {% endfor %}    
-    {% endif %}    
-    {% endwith %}    
+    <p>{{mensaje}}</p>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
 
+    <style>
+        /* Estilos personalizados */
+        .colorful-input {
+            background-color: #F9F9F9;
+            border: 1px solid #CCCCCC;
+            border-radius: 4px;
+            padding: 8px;
+        }
+
+        .colorful-button {
+            background-color: #FFC107;
+            border: none;
+            color: #FFFFFF;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .colorful-button:hover {
+            background-color: #FFA000;
+        }
+    </style>
 {% endblock %}
