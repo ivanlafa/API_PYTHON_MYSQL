@@ -20,9 +20,9 @@ mysql = MySQL(app)
 def inicio():
     return render_template("index.html")
 
-@app.route("/frmRProducto")
-def frmRProducto():
-    return render_template("frmRProducto.html")
+@app.route("/frmEstudiante")
+def frmEstudiante():
+    return render_template("frmEstudiante.html")
 
 @app.route("/registro", methods=["POST"])
 def registro():
@@ -42,7 +42,7 @@ def registro():
         mysql.connection.commit()
         # flash("Producto registrado")
         return jsonify({"mensaje":"Estudiante registrado", "estado": 1})
-        # return redirect(url_for("frmRProducto")) # nombre de la funcion
+        # return redirect(url_for("frmEstudiante")) # nombre de la funcion
 
 
 @app.route('/eliminar/<id>', methods=["DELETE"])
@@ -86,12 +86,12 @@ def editar(id):
     # CRUD : CREATE, READ, UPDATE, DELETE
 
 
-@app.route("/ADMPRODUCTOS")
-def AdmProductos():
+@app.route("/ADMESTUDIANTE")
+def AdmEstudiante():
     c = mysql.connection.cursor()
     c.execute("SELECT * FROM t_estudiantes")
     datos = c.fetchall()
-    return render_template("AdmProductos.html", personas = datos)
+    return render_template("AdmEstudiante.html", personas = datos)
 
 if __name__ == "__main__":
     app.run(debug=True, port= 3000)
