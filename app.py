@@ -1,7 +1,3 @@
-# pip install Flask       :: framework para crear app de manera rapida y con pocas
-#                            lineas de codigo
-
-# pip install flask-mysql :: extension que me permite conectar a una base de datos
 from flask import Flask, render_template, request, flash, redirect, url_for, jsonify
 from flask_mysqldb import MySQL
 
@@ -40,9 +36,9 @@ def registro():
         c.execute("INSERT INTO t_estudiantes(EST_NOMBRE,EST_PRIMER_APELLIDO, EST_SEGUNDO_APELLIDO,EST_CODIGO,EST_CORREO,EST_TELEFONO,EST_FECHA_NAC)VALUES(%s,%s,%s,%s,%s,%s,%s)",(
             nombre, primerApellido,segundoApellido,codigo,correo,telefono,fecha ))
         mysql.connection.commit()
-        # flash("Producto registrado")
+
         return jsonify({"mensaje":"Estudiante registrado", "estado": 1})
-        # return redirect(url_for("frmEstudiante")) # nombre de la funcion
+
 
 
 @app.route('/eliminar/<id>', methods=["DELETE"])
