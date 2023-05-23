@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+    <h3>ADMINISTRACION  DE ESTUDIANTES </h3>
+
+    <a href="/frmRProducto" class="btn btn-primary">Registrar</a>
+
+    <table class="table">
+        <tr>
+            <th>NOMBRE</th>
+            <th>PRIMER APELLIDO</th>
+            <th>SEGUNDO APELLIDO</th>
+            <th>CODIGO</th>
+            <th>CORREO</th>
+            <th>TELEFONO</th>
+            <th>FECHA DE NACIMIENTO</th>
+        </tr>
+        {% for persona in personas %}
+            <tr>
+                <td>{{persona.1}}</td>
+                <td>{{persona.2}}</td>
+                <td>{{persona.3}}</td>
+                <td>{{persona.4}}</td>
+                <td>{{persona.5}}</td>
+                <td>{{persona.6}}</td>
+                <td>{{persona.7}}</td>
+                <td> <a href="/frmEditar/{{persona.0}}" class="btn btn-primary"> editar </a> |
+                  <a href="#" class="btn btn-danger" onclick="eliminar('{{persona.0}}')"> eliminar</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+{% block body %}
+    <h3>REGISTRO DE ESTUDIANTES</h3>
+    <form method="post" action="/registro" onsubmit="return false">
+
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" name="nombre">
+          </div>
+
+          <div class="mb-3">
+            <label for="primerApellido" class="form-label">Primer Apellido</label>
+            <input type="text" class="form-control" id="primerApellido" name="primerApellido">
+          </div>
+
+          
+          <div class="mb-3">
+            <label for="segundoApellido" class="form-label">Segundo Apellido</label>
+            <input type="text" class="form-control" id="segundoApellido" name="segundoApellido">
+          </div>
+
+          <div class="mb-3">
+            <label for="codigo" class="form-label">Codigo</label>
+            <input type="text" class="form-control" id="codigo" name="codigo">
+          </div>
+
+          <div class="mb-3">
+            <label for="correo" class="form-label">Correo</label>
+            <input type="text" class="form-control" id="correo" name="correo">
+          </div>
+
+          <div class="mb-3">
+            <label for="telefono" class="form-label">Correo</label>
+            <input type="text" class="form-control" id="telefono" name="telefono">
+          </div>
+
+          <div class="mb-3">
+            <label for="fecha" class="form-label">Fecha</label>
+            <input type="text" class="form-control" id="fecha" name="fecha">
+          </div>
+
+
+          <input class="btn btn-primary" type="submit" name="aceptar" value="Guardar" onclick="registroProducto()">
+    </form>
+    {% with mensajes  = get_flashed_messages() %}
+    {% if mensajes %}
+    {% for mensaje in mensajes %}
+        <p>{{mensaje}}</p>
+    {% endfor %}    
+    {% endif %}    
+    {% endwith %}    
+
+{% endblock %}
